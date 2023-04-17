@@ -41,7 +41,7 @@
         </div>
         <div class="offcanvas-body">
           <ul class="list-none">
-            <li class="iconHover text-white"><i class="fa-solid fa-copy"></i></li>
+            <li class="iconHover text-white "><i class="fa-solid fa-copy"></i></li>
             <li class="mt-5 iconHover text-white"><i class="fa-solid fa-magnifying-glass"></i></li>
             <li class="mt-5 iconHover text-white"><i class="fa-solid fa-code-fork"></i></li>
             <li class="mt-5 iconHover text-white"><i class="fa-solid fa-bug"></i></li>
@@ -73,6 +73,10 @@
             <label class="twitterSrc">
               @npmstart_getx 
             </label>
+            <div class="form-check form-switch d-flex justify-content-center">
+              <input class="form-check-input" type="checkbox" role="switch" id="darkMode" onchange="changeTodarkMode()">
+              <label class="form-check-label pt-1 px-1" for="darkMode" style="font-size: 12px;">Modo Dark</label>
+            </div>
           </div>
       </div>
 
@@ -92,15 +96,15 @@
             </div>
 
             <div class="col-12 col-md-12 col-sm-12 row">
-            <div class="col-12 col-sm-12 d-flex justify-content-start ">
-              <p style="font-weight: 600; font-size: 12px; text-align: justify;">
+            <div class="col-12 col-sm-12 d-flex justify-content-start text-bolder text-justify">
+              <p style=" font-size: 12px;">
                   AVANADE   <br/>
                   Julho 2021 - Fevereiro 2023 <br/>    
                   <span>
                     Realizando dailys, plannings, e refinamento, minha rotina com a squad era desenvolvida 
                     com base solida em metodologia agil, regrada por informações diárias de planos executados e a serem executados. <br/> 
                     Em termos de desenvolvimento realizava principalmente a analise das regras de negocio, tranformando dados em Apis, para
-                    consumo e apresentação em tela.<br/> Criação de componentes escaláveis e criação de testes unitários. Utilizando as tecnologias:  
+                    consumo e apresentação em tela.<br/> Criação de componentes escaláveis e criação de testes unitários. <br/> Utilizando as tecnologias:  
                   </span><br/>
                   <br/>
                  <span style="font-weight: 500;"> C#,.Net, CSS, SQL Server, AWS, Angular, Vue.js, Node.js, Figma,
@@ -109,36 +113,36 @@
   
               </p>   
             </div>
-            <div class="col-12 col-sm-12 d-flex justify-content-start ">
-              <p style="font-weight: 600;font-size: 12px;    text-align: justify;">
+            <div class="col-12 col-sm-12 d-flex justify-content-start text-bolder text-justify">
+              <p style="font-size: 12px;">
                 FanBase   <br/> 
                 Fevereiro 2019 - Setembro 2021 <br/>  
                 <span>
                     Durante meu tempo de carreira trabalhado na Fanbase tive oportunidade de ter contato com um produto que não possuia nenhuma 
                     apresentação visual até então. Em 4 meses desenvolvemos um MVP com  <br/> partes importantes do processo e que ao decorrer do desenvolvimento se 
                     apresentaram como identidade relevantes do produto. <br/> Na Fanbase pude participar de processos de criação até o deploy. Desenvolvimento realizado em Vue, com algumas
-                    integrações de apis de envio de e-mails em massa como Twillio e sendPulse. 
+                    integrações de apis de envio de e-mails em massa como Twillio e sendPulse.<br/>  Utilizando as tecnologias:
                   </span><br/><br/>
                 <span style="font-weight: 500;"> Vue, Javascript, Express, Aspnet.core, Html, Css, Vuetify, Vuex, Axios, C#, Trello, Adobe Xd</span>
 
             </p>    
             </div>
-            <div class="col-12 col-sm-12 d-flex justify-content-start ">
-              <p style="font-weight: 600;font-size: 12px;    text-align: justify;">
+            <div class="col-12 col-sm-12 d-flex justify-content-start text-justify text-bolder">
+              <p style="font-size: 12px;">
                 EOS   <br/> 
                 Dezembro 2019 - Fevereiro 2021 <br/> 
                 <span>
                     Minha primeira experiência como desenvolvedora fron-end principal, veio com tarefas voltadas para desenvolvimentos de layouts 
-                    com html, css, js e jquery. Ao longo do tempo fui me interessando pelo backend e tive a oportunidade de me juntar ao time <br/> 
+                    com html, css, js e jquery. Ao longo do tempo fui me interessando pelo <br/> backend e tive a oportunidade de me juntar ao time 
                     com tarefas alinhadas a full stack, entregas de apis, criação de views, cruds... Poder ver meu trabalho em produção e sendo ultizado em tempo real foi um  
-                    apredendizado .<br/>   
+                    apredendizado . <br/> Utilizando as tecnologias:<br/>   
                   </span><br/>
                 <span style="font-weight: 500;">Jquery, HTML, Css, Razor, Javascript, Adobe XD, Cypress, SQL, Xamarin, C#, Bootstrap, Jira, Confluence</span>
 
             </p>   
             </div>
-            <div class="col-6 col-sm-12 d-flex justify-content-start ">
-                <p style="font-weight: 600;font-size: 12px;    text-align: justify;">
+            <div class="col-6 col-sm-12 d-flex justify-content-start text-justify text-bolder">
+                <p style="font-size: 12px;">
                   Links dos ultimos projetos pessoais em deploy e artigos ao longo da carreira <br/>
                   <a href="https://roundedthe.web.app/" class="reboot-a">
                       https://roundedthe.web.app/  
@@ -153,13 +157,14 @@
                    </a>
               </p>   
               </div>
-              <div>
+              <div class="col-12 col-sm-12 d-flex justify-content-start text-justify text-bolder"><span>Comentários</span></div>
+              <div class="col-12 col-sm-12 d-flex justify-content-start text-justify" id="commentList"></div>
+              <div class="col-6 ">
 
-              <div class="col-6 col-sm-12 d-flex justify-content-end">
-                <i class="fa-solid fa-comments cardActions iconHover"></i>
-                <label style="font-size: 12px;margin-left: 15px;" class="iconHover cardActions">Adicionar comentario</label>
+              <div class="col-6 col-sm-12 d-flex justify-content-end mt-4">
+                <i class="fa-solid fa-comments cardActions iconHover "></i>
+                <label style="font-size: 12px;margin-left: 15px;" class="iconHover cardActions">Adicionar comentário</label>
               </div>
-              <div class="col-6 col-sm-12 d-flex justify-content-start" style="text-align: justify" id="commentList"></div>
 
               <div class="form-floating col-6 mt-4">
                 <input class="form-control form-control-sm" placeholder="Nome" id="name" style="background-color: #20222f;color: white;"></textarea>
@@ -202,40 +207,50 @@
       };
       firebase.initializeApp(firebaseConfig);
 
+      getCommentList()
+      // darkMode()
 
-      function send(){
+      async function send(){
         let id = parseInt(Math.random())
-        const test = firebase.database().ref(`comments/${id}`);
+        const commentsList = firebase.database().ref(`comments/${id}`);
         let name = document.getElementById("name").value;
         let comments = document.getElementById("comments").value;
-        test.set({
-         comments: comments,
-        name: name,
-      });
-      listComments()
+        if(name && comments) {
+          commentsList.set({
+           comments: comments,
+          name: name,
+        });
+        await getCommentList()
+        }
     }
 
-      function listComments() {
-        const test = firebase.database().ref("comments");
-        test.get().then((snapshot) => {
-        if (snapshot.exists()) {
+      async function getCommentList() {
+        const comments = firebase.database().ref("comments");
+       await comments.get().then((comment) => {
+        if (comment.exists()) {
           let commentList = document.getElementById("commentList");
+          let name = document.getElementById("name").value;
+        let comments = document.getElementById("comments").value;
 
-          snapshot.val().forEach(el => {
-            commentList.append(`nome: ${el.name}, comentário: ${el.comments}`) 
+        comment.val().forEach(el => {
+            commentList.append(`nome: ${el.name}, comentário: ${el.comments} || `) 
+           document.getElementById("name").value = '';
+         document.getElementById("comments").value = '';
           });
-          console.log()
+
         } else {
-          console.log("No data available");
+          console.log("Sem dados disponiveis");
         }
       }).catch((error) => {
         console.error(error);
       });
-
-      
-
       }
 
+      function changeTodarkMode() {
+          document.body.style.setProperty('--bg-dark', '#e9ecef');
+        document.body.style.setProperty('--text-light', '#292a33');        
+        document.body.classList.remove('text-bg-dark') 
+      }
     </script>
   </body>
 </html>

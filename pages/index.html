@@ -38,7 +38,7 @@
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasDarkLabel"></h5>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body" id="sidebar">
           <ul class="list-none">
             <li class="iconHover text-white">
               <i class="fa-solid fa-copy"></i>
@@ -88,6 +88,11 @@
         <hr />
         <div>
           <label class="twitterSrc"> @npmstart_getx </label>
+          <!-- julia -->
+          <div class="form-check form-switch d-flex justify-content-center">
+            <input class="form-check-input" type="checkbox" role="switch" id="darkMode" onclick="changeTodarkMode()" value="off">
+            <label class="form-check-label pt-1 px-2" for="darkMode" style="font-size: 12px;">Modo Dark</label>
+          </div>
         </div>
       </div>
 
@@ -102,7 +107,7 @@
             <div class="col-12 d-flex justify-content-start mt-5 pt-5">
               <p class="font--profile title--info">Front-end Developer</p>
               <img
-                src="../assets/rosa.png"
+                src="../rosa.png"
                 alt=""
                 height="20"
                 width="auto"
@@ -112,7 +117,7 @@
             <div class="col-12 row">
               <div class="col-12 d-flex justify-content-start">
                 <div class="px-2 flipp">
-                  <i class="fa-solid fa-code mr-2"></i>
+                  <i class="fa-solid fa-code mr-2 --text-light"></i>
                 </div>
                 <div class="px-2 flipp">
                   <i class="fa-solid fa-laptop"></i>
@@ -198,6 +203,13 @@
           });
         }
       })();
+
+      function changeTodarkMode() {
+        document.body.style.setProperty('--bg-dark', '#e9ecef');
+        document.body.style.setProperty('--text-light', '#292a33');        
+        document.body.classList.remove('text-bg-dark')        
+              
+        }
     </script>
   </body>
 </html>
