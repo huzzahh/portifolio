@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Recursive:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -26,7 +26,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="d-flex h-100 text-center text-bg-dark" style="overflow: hidden;">
+  <body class="d-flex h-100 text-center text-bg-dark" >
     <main class="cover-container d-flex w-100 h-100">
       <div
         class="offcanvas offcanvas-start show bg--blue"
@@ -55,7 +55,7 @@
         <div class="mt-4 pt-2">
           <ul class="list-none">
             <li class="iconHover pb-2">
-                <a href="inicio.html"  class="reboot-a">
+                <a href="index.html"  class="reboot-a">
               <i class="fa-solid fa-code linkPages"></i>
               perfil.html
               </a>
@@ -96,8 +96,16 @@
               <p style="font-weight: 600; font-size: 12px; text-align: justify;">
                   AVANADE   <br/>
                   Julho 2021 - Fevereiro 2023 <br/>    
+                  <span>
+                    Realizando dailys, plannings, e refinamento, minha rotina com a squad era desenvolvida 
+                    com base solida em metodologia agil, regrada por informações diárias de planos executados e a serem executados. <br/> 
+                    Em termos de desenvolvimento realizava principalmente a analise das regras de negocio, tranformando dados em Apis, para
+                    consumo e apresentação em tela.<br/> Criação de componentes escaláveis e criação de testes unitários. Utilizando as tecnologias:  
+                  </span><br/>
+                  <br/>
                  <span style="font-weight: 500;"> C#,.Net, CSS, SQL Server, AWS, Angular, Vue.js, Node.js, Figma,
-                 GraphQl, Axios, Express, Html, Css, Webpack, Javascript, Typescript, Confluence, Jira, Git, Azure</span>
+                 GraphQl, Axios, Express, Html, Css, Webpack, Javascript, Typescript, Confluence, Jira, Git, Azure</span> 
+
   
               </p>   
             </div>
@@ -105,6 +113,12 @@
               <p style="font-weight: 600;font-size: 12px;    text-align: justify;">
                 FanBase   <br/> 
                 Fevereiro 2019 - Setembro 2021 <br/>  
+                <span>
+                    Durante meu tempo de carreira trabalhado na Fanbase tive oportunidade de ter contato com um produto que não possuia nenhuma 
+                    apresentação visual até então. Em 4 meses desenvolvemos um MVP com  <br/> partes importantes do processo e que ao decorrer do desenvolvimento se 
+                    apresentaram como identidade relevantes do produto. <br/> Na Fanbase pude participar de processos de criação até o deploy. Desenvolvimento realizado em Vue, com algumas
+                    integrações de apis de envio de e-mails em massa como Twillio e sendPulse. 
+                  </span><br/><br/>
                 <span style="font-weight: 500;"> Vue, Javascript, Express, Aspnet.core, Html, Css, Vuetify, Vuex, Axios, C#, Trello, Adobe Xd</span>
 
             </p>    
@@ -113,6 +127,12 @@
               <p style="font-weight: 600;font-size: 12px;    text-align: justify;">
                 EOS   <br/> 
                 Dezembro 2019 - Fevereiro 2021 <br/> 
+                <span>
+                    Minha primeira experiência como desenvolvedora fron-end principal, veio com tarefas voltadas para desenvolvimentos de layouts 
+                    com html, css, js e jquery. Ao longo do tempo fui me interessando pelo backend e tive a oportunidade de me juntar ao time <br/> 
+                    com tarefas alinhadas a full stack, entregas de apis, criação de views, cruds... Poder ver meu trabalho em produção e sendo ultizado em tempo real foi um  
+                    apredendizado .<br/>   
+                  </span><br/>
                 <span style="font-weight: 500;">Jquery, HTML, Css, Razor, Javascript, Adobe XD, Cypress, SQL, Xamarin, C#, Bootstrap, Jira, Confluence</span>
 
             </p>   
@@ -139,16 +159,18 @@
                 <i class="fa-solid fa-comments cardActions iconHover"></i>
                 <label style="font-size: 12px;margin-left: 15px;" class="iconHover cardActions">Adicionar comentario</label>
               </div>
+              <div class="col-6 col-sm-12 d-flex justify-content-start" style="text-align: justify" id="commentList"></div>
+
               <div class="form-floating col-6 mt-4">
-                <input class="form-control form-control-sm" placeholder="Leave a comment here" id="floatingTextarea1" style="background-color: #20222f;color: white;"></textarea>
-                <label for="floatingTextarea1">Nome</label>
+                <input class="form-control form-control-sm" placeholder="Nome" id="name" style="background-color: #20222f;color: white;"></textarea>
+                <label for="name">Nome</label>
             </div>
               <div class="form-floating col-12 mt-4">
-                <textarea class="form-control form-control-sm" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px;background-color: #20222f;color: white;"></textarea>
-                <label for="floatingTextarea2">Comentarios ou Sugestoes</label>
+                <textarea class="form-control form-control-sm" placeholder="Leave a comment here" id="comments" maxlength="100" style="height: 100px;background-color: #20222f;color: white;"></textarea>
+                <label for="comments">Comentarios ou Sugestoes</label>
             </div>
             <div class="d-flex justify-content-end mt-2">
-                <button class="btn btn-success">Enviar</button>
+                <button class="btn btn-success" onclick="send()">Enviar</button>
             </div>
             </div>
         </div>
@@ -165,5 +187,55 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCI6J3fl6h2XyJsVNuX7mtf-uXh8R_IQWA",
+        authDomain: "juliamartinscmd.firebaseapp.com",
+        databaseURL: "https://juliamartinscmd-default-rtdb.firebaseio.com",
+        projectId: "juliamartinscmd",
+        storageBucket: "juliamartinscmd.appspot.com",
+        messagingSenderId: "273501657944",
+        appId: "1:273501657944:web:fde4bebfa904de8ac4a32d",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+
+      function send(){
+        let id = parseInt(Math.random())
+        const test = firebase.database().ref(`comments/${id}`);
+        let name = document.getElementById("name").value;
+        let comments = document.getElementById("comments").value;
+        test.set({
+         comments: comments,
+        name: name,
+      });
+      listComments()
+    }
+
+      function listComments() {
+        const test = firebase.database().ref("comments");
+        test.get().then((snapshot) => {
+        if (snapshot.exists()) {
+          let commentList = document.getElementById("commentList");
+
+          snapshot.val().forEach(el => {
+            commentList.append(`nome: ${el.name}, comentário: ${el.comments}`) 
+          });
+          console.log()
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+
+      
+
+      }
+
+    </script>
   </body>
 </html>
